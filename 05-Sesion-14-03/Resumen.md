@@ -9,7 +9,7 @@
 1. Herencia
 2. Polimorfismo
 3. Abstracción
-4. Encapsulamiento
+4. Encapsulamiento *
 
 ## Visualización 
 1. private 
