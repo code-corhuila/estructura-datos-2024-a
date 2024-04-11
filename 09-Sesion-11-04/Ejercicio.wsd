@@ -1,0 +1,71 @@
+@startuml
+
+class Persona{
+    - nombre : String
+    - apellido : String
+    - correo : String
+}
+
+class Categoria{
+    - codigo: String
+    - nombre: String
+}
+
+class Producto{
+    - codigo: String
+    - nombre: String
+    - precio: Decimal
+    - stock: Integer
+    - categoria: Categoria
+}
+
+class Factura{
+    - codigo: String
+    - fecha: LocalDateTime
+    - total: Decimal
+    - persona: Persona
+}
+
+class DetalleFactura{
+    - precio: Decimal
+    - cantidad: Integer
+    - subtotal: Decimal
+    - producto: Producto
+    - factura: Factura
+}
+
+abstract class ABaseEntity implements IBaseCrud{
+    - id : Long
+    - state : Boolean 
+    - createdDate : LocalDateTime
+    - updatedDate : LocalDateTime
+    - deletedDate : LocalDateTime
+
+    + getAtribute() : Type
+    + setAtribute(Type atribute) : void
+
+}
+
+interface IBaseCrud{
+    + save()
+    + update()
+    + delete()
+    + findAll()
+    + findById()
+}
+
+Producto o-- Categoria
+DetalleFactura *-- Producto
+DetalleFactura *-- Factura
+Factura *-- Persona
+
+
+'Start Representación de herencia con ABaseEntity
+class PersonaRef extends ABaseEntity{}
+class CategoriaRef extends ABaseEntity{}
+class ProductoRef extends ABaseEntity{}
+class FacturaRef extends ABaseEntity{}
+'End Representación de herencia con ABaseEntity
+
+
+@endstartuml
