@@ -20,18 +20,18 @@ public class CarroService implements ICarroService {
     }
 
     @Override
-    public void update(Carro Carro, Long id) {
+    public void update(Carro carro, Long id) {
         //Buscar si existe el dato con ese id
         Optional<Carro> optional = repository.findById(id);
 
         //Si existe, se actualiza
         if (optional.isPresent()) {
             Carro carroUpdate = optional.get();
-            carroUpdate.setMarca(Carro.getMarca());
-            carroUpdate.setModelo(Carro.getModelo());
-            carroUpdate.setPlaca(Carro.getPlaca());
-            carroUpdate.setColor(Carro.getColor());
-            carroUpdate.setCategoriaId(Carro.getCategoriaId());
+            carroUpdate.setMarca(carro.getMarca());
+            carroUpdate.setModelo(carro.getModelo());
+            carroUpdate.setPlaca(carro.getPlaca());
+            carroUpdate.setColor(carro.getColor());
+            carroUpdate.setCategoriaId(carro.getCategoriaId());
             repository.save(carroUpdate);
         }else{
             throw new RuntimeException("No existe el registro para actualizar");
