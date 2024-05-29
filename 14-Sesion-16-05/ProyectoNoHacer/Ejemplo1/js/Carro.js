@@ -12,7 +12,7 @@ const Carro = {
                         <td>${item.modelo}</td>
                         <td>${item.placa}</td>
                         <td>${item.color}</td>
-                        <td>${item.categoriaId.id}</td>
+                        <td>${item.categoriaId.nombre}</td>
                         <td>
                             <button class="btn btn-primary" onclick="Carro.findById(${item.id})">Editar</button>
                             <button class="btn btn-danger" onclick="Carro.delete(${item.id})">Eliminar</button>
